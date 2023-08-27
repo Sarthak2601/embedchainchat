@@ -1,12 +1,22 @@
+'use client'
+import ChatArea from "./components/chat/ChatArea"
 import Dropzone from "./components/dropzone/Dropzone"
+import React, { useState } from 'react';
+
 
 export default function Home() {
+  const [fileUploaded, setFileUploaded] = useState(false);
+  
+  const handleFileUpload = () => {
+    setFileUploaded(true);
+  };
+
   return (
-    <section className='section'> 
-      <div className='container'>
-        <h1 className='title text-3x1 font-bold'>Upload Files</h1>
-        <Dropzone className='p-16 mt-10 border border-neutral-200'/>
-      </div>
-    </section>
+    <div className='container'>
+        {!fileUploaded ? 
+          (<Dropzone onFileUpload={handleFileUpload}/>) : 
+          (<ChatArea initialMessages={[]} />)
+        }
+    </div>
   )
 }

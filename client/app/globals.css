@@ -24,6 +24,6 @@
   }
 
   .title {
-    @apply text-primary-400 font-serif tracking-wide;
+    @apply text-blue-500 font-serif tracking-wide text-center text-2xl font-bold;
   }
 }
