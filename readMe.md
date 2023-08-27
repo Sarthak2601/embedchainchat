@@ -25,3 +25,11 @@ Step 8: Move to the client by first opening a new terminal window and then `cd c
 Step 9: Install next using: `npm i next`
 
 Step 10: Run client using `npm run dev` and open up the project at: `http://localhost:3000`
+
+**Demos**
+
+![](https://github.com/Sarthak2601/embedchainchat/assets/53938155/2329b38e-5e75-4044-a186-3020154a9d32)
+
+
+![](https://github.com/Sarthak2601/embedchainchat/assets/53938155/6fc9b75e-fa7b-47f2-abae-b07256150f7e)
+
