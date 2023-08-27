@@ -32,8 +32,7 @@ def upload_file():
                 continue
             
             if file and allowed_file(file.filename):
-                filename = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-                file.save(filename)
+                print(file.filename)
                 # embedChainBot.add(file)
             else:
                 success = False
