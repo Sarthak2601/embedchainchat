@@ -13,7 +13,7 @@ export async function sendQuery(message: String): Promise<string> {
       if (response.ok) {
         const responseData = await response.json();
         console.log('Query Successful', responseData);
-        return Promise.resolve(responseData.data); 
+        return Promise.resolve(responseData); 
       } else {
         console.error('Error querying files:', response.statusText);
         return Promise.reject(response.statusText); 

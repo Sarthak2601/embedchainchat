@@ -1,19 +1,21 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-# from embedchain import App
+from embedchain import App
 
 app = Flask(__name__)
 CORS(app)
 
 UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'uploads')
 ALLOWED_EXTENSIONS = {'txt', 'pdf'}
+OPEN_AI_API_KEY = ""
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# os.environ["OPENAI_API_KEY"] = ""
-# app.config['OPENAI_API_KEY'] = ""
-# embedChainBot = App()
+os.environ["OPENAI_API_KEY"] = OPEN_AI_API_KEY
+app.config['OPENAI_API_KEY'] = OPEN_AI_API_KEY
+
+embedChainBot = App()
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -33,7 +35,7 @@ def upload_file():
             
             if file and allowed_file(file.filename):
                 print(file.filename)
-                # embedChainBot.add(file)
+                embedChainBot.add(str(file))
             else:
                 success = False
 
@@ -49,8 +51,8 @@ def upload_file():
 def query_bot():
     try: 
         question = request.json.get('question')
-        print(question)
-        response_data = {"data": "TEST RESPONSE FROM API"}
+        response_data = embedChainBot.query(str(question))
+        print(response_data)
         return jsonify(response_data), 200
     except Exception as e:
         return jsonify({"erorr", str(e)}), 500
