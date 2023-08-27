@@ -25,3 +25,6 @@ Step 8: Install next using: `npm i next`
 Step 9: Run client using `npm run dev` and open up the project at: `http://localhost:3000`
 
 **Note**: Due to dependency issues in setting up Embedchain, this project doesn't use Embedchain as of now. It uses mock response from Embedchain API's to add data source(s) and to query the bot. However, the APIs are setup in accordance with the request and response patterns of Embedchain -- so we may need not make major changes once Embedchain is correctly set up in the project. 
+
+**Demo**
+![](https://github.com/Sarthak2601/embedchainchat/blob/main/demo.gif)
